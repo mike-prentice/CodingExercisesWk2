@@ -1,10 +1,12 @@
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 public class Solution {
     public static class Fish {
+
     }
 
     public static class X {
@@ -50,6 +52,11 @@ public class Solution {
         Solution.soln15("Animal Farm");
         soln16();
         soln17();
+        soln18();
+        soln19();
+        soln20();
+        soln21();
+        soln22();
 
     }
 
@@ -103,7 +110,7 @@ public class Solution {
     public static void soln6() {
         boolean[] a = {false, false, false, true, false};
         for (int i = 0; i < a.length; i++) {
-            if (a[i] == true) {
+            if (a[i]) {
                 System.out.println(i);
                 break;
             }
@@ -116,7 +123,7 @@ public class Solution {
         int i = 0;
         while (i < a.length) {
 
-            if (a[i] == true) {
+            if (a[i]) {
                 System.out.println(i);
                 break;
             }
@@ -200,14 +207,10 @@ public class Solution {
         System.out.println(result);
     }
 
-    public static void soln15(Object j) {
+    public static boolean soln15(Object j) {
         // create a method that returns a boolean if the Object passed to it is a Fish or not
-        Fish f1 = new Fish();
-        if (f1.getClass().equals(Fish.class)) {
-            System.out.println(true);
-        } else {
-            System.out.println(false);
-        }
+        System.out.println(j.getClass().equals(Fish.class));
+        return (j.getClass().equals(Fish.class));
     }
 
     public static void soln16() {
@@ -228,44 +231,68 @@ public class Solution {
             if (temp < 72) {
                 heatOn = true;
                 airOn = false;
-                System.out.println(String.valueOf(airOn));
+                System.out.println(airOn);
                 break;
-            } else if (temp > 72) {
+            } else if (temp > 76) {
                 airOn = true;
                 heatOn = false;
-                System.out.println(String.valueOf(heatOn));
+                System.out.println(heatOn);
                 break;
-
             }
-
-
         }
+    }
+
+
+    public static void soln18() {
+        double[] array = {0.12, 3.24, 1.1, 2.42};
+        double pi = Math.PI;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > pi) {
+                System.out.println(array[i] + " , " + i);
+            }
+        }
+    }
+
+    public static void soln19() {
+        int sum = 0;
+        HashMap<Integer, Integer> nums = new HashMap<>();
+        nums.put(0, null);
+        nums.put(1, 4);
+        nums.put(2, 5);
+        nums.put(3, null);
+
+        nums.values().removeAll(Collections.singleton(null));
+
+
+        for (int s : nums.values()) {
+            sum += s;
+        }
+
+        System.out.println(sum);
 
 
     }
-//
-//  public static void  soln18() {
-//  // and put your code here.
-//  }
-//
-//  public static void  soln19() {
-//  // and put your code here.
-//  }
-//
-//  public static void  soln20() {
-//      Integer [] array = {3, 5, 7, 8, 3, 6};
-//      List<Integer> list = Arrays.asList((array));
-//      Collections.reverse(list);
-//      System.out.println(array);
-// }
-//
-//  public static void  soln21() {
-//  // and put your code here.
-//  }
-//
-//  public static void  soln22() {
-//  // and put your code here.
-//  }
 
+    public static void soln20() {
+        Integer[] array = {3, 5, 7, 8, 3, 6};
+        List<Integer> list = Arrays.asList((array));
+        Collections.reverse(list);
+        System.out.println(Arrays.toString(array));
+    }
 
+    public static void soln21() {
+        for (int i = 1; i <= 20; i++) {
+            System.out.println(5 + " x" + " " + i + " =" + " " + (5 * i));
+        }
+    }
+
+    public static void soln22() {
+        double hypotenuse;
+        double result;
+        double a = 9;
+        double b = 7;
+        result = Math.pow(a, 2) + Math.pow(b, 2);
+        hypotenuse = Math.sqrt(result);
+        System.out.println(hypotenuse);
+    }
 }
